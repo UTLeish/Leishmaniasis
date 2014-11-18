@@ -5,11 +5,10 @@ app.config(['$routeProvider', function($routeProvider){
   $routeProvider
   // Home page
   .when("/", {templateUrl: "partials/home.html", controller: "ctrl"})
+  
   // Tabs
   .when("/about", {templateUrl: "partials/about.html", controller: "ctrl"})
-  // Home page
   .when("/eco-epidemiology", {templateUrl: "partials/eco-epidemiology.html", controller: "ctrl"})
-  // Tabs
   .when("/forms", {templateUrl: "partials/forms.html", controller: "ctrl"})
   .when("/leishmaniasis", {templateUrl: "partials/leishmaniasis.html", controller: "ctrl"})
   .when("/sandfly-distributions", {templateUrl: "partials/sandfly-distributions.html", controller: "ctrl"})
