@@ -1,58 +1,27 @@
-var app = angular.module('leishmanaisisApp', ['ngRoute', 'portfolioServices']);
-
-var projectId = "about";
+var app = angular.module('leishmanaisisApp', ['ngRoute']);
 
 /* Configure Routes */
 app.config(['$routeProvider', function($routeProvider){
-
-  $routeProvider.
-      when('/projects', {
-        templateUrl: 'partials/home.html',
-        controller: 'ctrl'
-      }).
-      when('/projects/:projectId', {
-        templateUrl: function(urlPath){ return '/partials/' + projectId + '.html'},
-        controller: 'ctrl'
-      }).
-      otherwise({
-        redirectTo: '/projects/details.html',
-        controller: 'ctrl'
-      });
-}]);
-
-/* Main Controller */
-app.controller('ctrl', ['$scope', '$routeParams', 'Project',
-  function($scope, $routeParams, Project) {
-    $scope.project = Project.get({projectId: $routeParams.projectId}, function(project) {
-        $scope.mainImageUrl = project.images[0];
-        $scope.orderProp = 'rank';
-    });
-
-    $scope.setImage = function(imageUrl) {
-      $scope.mainImageUrl = imageUrl;
-    }
-}]);
-
-/* Main Controller */
-app.controller('tabs', ['$scope', 'Project', function($scope, Project) {
-    $scope.projects = Project.query();
-    $scope.orderProp = 'age';
+  $routeProvider
+  // Home page
+  .when("/", {templateUrl: "partials/home.html", controller: "ctrl"})
   
+  // Tabs
+  .when("/about", {templateUrl: "partials/about.html", controller: "ctrl"})
+  .when("/eco-epidemiology", {templateUrl: "partials/eco-epidemiology.html", controller: "ctrl"})
+  .when("/forms", {templateUrl: "partials/forms.html", controller: "ctrl"})
+  .when("/leishmaniasis", {templateUrl: "partials/leishmaniasis.html", controller: "ctrl"})
+  .when("/sandfly-distributions", {templateUrl: "partials/sandfly-distributions.html", controller: "ctrl"})
+  .when("/texas-plague-survey", {templateUrl: "partials/texas-plague-survey.html", controller: "ctrl"}) 
+  .when("/contact", {templateUrl: "partials/contact.html", controller: "ctrl"}) 
+  // error
+  .when("/404", {templateUrl: "partials/404.html", controller: "ctrl"})
 }]);
 
-/* Service */
-'use strict';
-
-/* Services */
-var portfolioServices = angular.module('portfolioServices', ['ngResource']);
-
-portfolioServices.factory('Project', ['$resource',
-  function($resource){
-    return $resource('partials/:projectId.json', {}, {
-      query: {method:'GET', params:{projectId:'tabs'}, isArray:true}
-    });
-}]);
-
+/* Main Controller */
+app.controller('ctrl', function() {
+  
+});
 
 /* Resize image to browser height */
 
