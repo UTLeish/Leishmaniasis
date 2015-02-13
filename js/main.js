@@ -22,24 +22,3 @@ app.config(['$routeProvider', function($routeProvider){
 app.controller('ctrl', function() {
   
 });
-
-/* Resize image to browser height */
-
-var W = $(window).width(),
-    H = $(window).height();
-
-if (W < 768)
-    H = H/2;
-
-$('.cover').height(H);
-$('.logo').css('padding-top', H/2 - 80);
-
-function imgsize() {
-    var W = $(window).width(),
-        H = $(window).height();
-    if (W < 768)
-      H = H/2;
-    $('.cover').height(H);
-    $('.logo').css('padding-top', H/2 - 80);
-}
-$(window).bind('resize', function() { imgsize(); });
