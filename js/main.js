@@ -15,6 +15,7 @@ app.config(['$routeProvider', function($routeProvider){
   .when("/texas-plague-survey", {templateUrl: "partials/texas-plague-survey.html", controller: "ctrl"}) 
   .when("/contact", {templateUrl: "partials/contact.html", controller: "ctrl"}) 
   .when("/bio", {templateUrl: "partials/bio.html", controller: "ctrl"}) 
+
   // error
   .when("/404", {templateUrl: "partials/404.html", controller: "ctrl"})
 }]);
