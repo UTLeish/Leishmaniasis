@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>Leishmaniasis</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/grid.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="font/entypo.css">
+</head>
+
+<body ng-app="leishmanaisisApp">
+
+  <!-- Header with navigation bar -->
+  <div ng-include='"templates/header.html"'></div>
+  
+  <!-- Tab pages -->
+  <div class="content" ng-view></div>
+  
+  <!-- Footer -->
+  <div ng-include='"templates/footer.html"'></div>
+</body>
+
+<!-- External JS Librairies -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular-route.min.js"></script>
+
+<script src="js/main.js"></script>
+
+</html>
